@@ -10,7 +10,7 @@ import 'package:techmeegapplication/Utils/base_manager.dart';
 
 class Kycstatus {
     Future<ResponseData<dynamic>> Getkycstatus() async {
-    final response = await NetworkApi().getApi(ApiConstant.addToFav);
+    final response = await NetworkApi().getApi(ApiConstant.Postlogin);
     if (response.status == ResponseStatus.SUCCESS) {
       // getkycstatusobj = GetkycstatusModel.fromJson(response.data);
       // change here also for response

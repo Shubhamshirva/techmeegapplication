@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:techmeegapplication/Utils/themedata.dart';
 
 class CustomTextFormField extends StatefulWidget {
   CustomTextFormField(
@@ -13,7 +14,7 @@ class CustomTextFormField extends StatefulWidget {
       this.leadingIcon,
       this.readonly = false,
       this.textCapital = false,
-      this.isInputPassword = false,
+      this.isInputPassword ,
       this.outlineColor = const Color(0xFFFFB600),
       this.texttype,
       this.onInput})
@@ -24,7 +25,7 @@ class CustomTextFormField extends StatefulWidget {
   final String hintText;
   final String validatorText;
   final Widget? leadingIcon;
-  final bool isInputPassword;
+  final Widget? isInputPassword;
   final bool readonly;
   final bool textCapital;
   final dynamic inputFormatters;
@@ -36,12 +37,12 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomtextFormFieldState extends State<CustomTextFormField> {
-  late bool obscureText;
+  // late bool obscureText;
 
   @override
   void initState() {
     super.initState();
-    obscureText = widget.isInputPassword;
+    // obscureText = widget.isInputPassword;
   }
 
   @override
@@ -56,7 +57,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
       readOnly: widget.readonly,
       cursorColor: const Color(0xFF1B8DC9),
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      obscureText: obscureText,
+      // obscureText: obscureText,
       controller: widget.textEditingController,
       decoration: InputDecoration(
         errorStyle: TextStyle(fontSize: 12.sp),
@@ -65,15 +66,15 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
+          borderSide: BorderSide(color: AppColors.bluebackgroundcolor, width: 1),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
+          borderSide: BorderSide(color: AppColors.bluebackgroundcolor, width: 1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+          borderSide: BorderSide(color: AppColors.bluebackgroundcolor, width: 1),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -84,7 +85,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
           borderSide: const BorderSide(color: Colors.red, width: 1),
         ),
         hintStyle: TextStyle(
-            color: Color(0x80000000), fontSize: 16.sp, fontFamily: "Poppins"),
+            color: AppColors.bluebackgroundcolor, fontSize: 16.sp, fontFamily: "Poppins"),
         hintText: widget.hintText,
         prefixIcon: widget.leadingIcon == null
             ? null
@@ -93,36 +94,36 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                 child: widget.leadingIcon!,
               ),
         suffixIcon: widget.isInputPassword
-            ? GestureDetector(
-                onTap: () => setState(() => obscureText = !obscureText),
-                child: obscureText
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(right: 20.0),
-                            child: SvgPicture.asset(
-                              // "assets/images/eye-closed-svgrepo-com.svg",
-                              "",
-                              color: Color(0XFF959595),
-                            ),
-                          ),
-                        ],
-                      )
-                    : Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(right: 20.0),
-                            child: Icon(
-                              Icons.remove_red_eye_outlined,
-                              color: Color(0xFF959595),
-                            ),
-                          ),
-                        ],
-                      ),
-              )
-            : null,
+            // ? GestureDetector(
+            //     onTap: () => setState(() => obscureText = !obscureText),
+            //     child: obscureText
+            //         ? Column(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               Padding(
+            //                 padding: EdgeInsets.only(right: 20.0),
+            //                 child: SvgPicture.asset(
+            //                   // "assets/images/eye-closed-svgrepo-com.svg",
+            //                   "",
+            //                   color: Color(0XFF959595),
+            //                 ),
+            //               ),
+            //             ],
+            //           )
+            //         : Column(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               Padding(
+            //                 padding: EdgeInsets.only(right: 20.0),
+            //                 child: Icon(
+            //                   Icons.remove_red_eye_outlined,
+            //                   color: Color(0xFF959595),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //   )
+            // : null,
       ),
       keyboardType: widget.texttype,
       validator: widget.validator ??

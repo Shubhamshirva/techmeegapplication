@@ -58,8 +58,8 @@ class NetworkApi {
     try {
       response = await dio.post(url,
           data: data,
-          options: 
-             Options(headers: {"authorization": "Bearer $token"})
+          // options: 
+          //    Options(headers: {"authorization": "Bearer $token"})
               
                 );
     } on Exception catch (_) {
@@ -87,6 +87,36 @@ class NetworkApi {
             response.statusMessage!, ResponseStatus.FAILED);
       }
     }
+  }
+  
+    Future<Response> postApiLogin({required String url}) async {
+    try {
+      Response response = await dio.post(url);
+
+      if (response.statusCode == 200) {
+        return response;
+      } else {
+        // Handle non-200 status codes
+        return handleNon200Response(response);
+      }
+    } catch (e) {
+      // Handle exceptions
+      return handleException(e);
+    }
+  }
+
+  Response handleNon200Response(Response response) {
+    // Your logic to handle non-200 status codes
+    print("Request failed with status: ${response.statusCode}");
+    return response;
+  }
+
+  Response handleException(dynamic e) {
+    // Your logic to handle exceptions
+    print("Error in postApiLogin: $e");
+    return Response(
+      requestOptions: RequestOptions(path: ''), // Provide a default RequestOptions
+    );
   }
 
  Future<ResponseData<dynamic>> postApiHttp(

@@ -131,8 +131,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      useInheritedMediaQuery: true,
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
-        title: 'Wedzy',
+        title: 'TechmeegPos',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light(),
 

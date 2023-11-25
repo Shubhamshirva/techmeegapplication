@@ -30,6 +30,8 @@ abstract class AppColors {
   static const cardLight = Color(0xFFF9FAFE);
   static const cardDark = Color(0xFF303334);
   static const backgroundDark = Color(0xFF303334);
+  static const bluebackgroundscaffold = Color(0xFF4361EE);
+  static const bluebackgroundcolor = Color(0xFF4895EF);
 
   static const black = Color(0xff373434);
   static const transparent = Colors.transparent;

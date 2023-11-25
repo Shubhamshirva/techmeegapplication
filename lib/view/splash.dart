@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:techmeegapplication/view/Login.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -12,10 +13,10 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
-    // Timer(
-    //     Duration(seconds: 2),
-    //     () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-    //         builder: (BuildContext context) => Splashslider())));
+    Timer(
+        Duration(seconds: 2),
+        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (BuildContext context) => LoginPage())));
 
     return Scaffold(
       body: Container(
